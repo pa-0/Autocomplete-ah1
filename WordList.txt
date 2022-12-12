@@ -1,3 +1,0 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<strong>|</strong>
-<table>\n\t<tr>\n\t\t<td></td>\n\t</tr>\n</table>
