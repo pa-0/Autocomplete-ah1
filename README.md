@@ -7,12 +7,12 @@ Suggests and completes words as you type! Write faster and more efficiently.
 Using
 -----
 
-1. Extract the archive to a safe location.
-2. If you downloaded the binaries, open `Autocomplete.exe`.
-3. If you downloaded the source, make sure you have a recent version of [AutoHotkey](http://www.autohotkey.com/) installed, and run `Autocomplete.ahk`.
+1. Clone the repo and extract to a safe location
+2. make sure you have a recent version of [AutoHotkey](http://www.autohotkey.com/) installed, and run `Autocomplete.ahk`.
+3. Use the tray menu to alter the settings
 4. Start typing somewhere. After the first few characters, a suggestion box will appear.
 5. Use the `Up`/`Down` and `PgUp`/`PgDn` keys to select an entry if the currently selected one is not the desired word.
-6. Press `Enter` or `Tab` to trigger the completion with the currently selected word.
+6. Press `Tab` to trigger the completion with the currently selected word.
 7. Alternatively, press one of `1`, `2`, ... `9`, `0` to trigger completion with the 1st, 2nd, ... 9th, and 10th word, repectively.
 8. Press `Esc` to cancel and close the suggestions list.
 
