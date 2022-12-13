@@ -67,10 +67,11 @@ Menu, Tray, Default, Settings
 
 ;set up suggestions window
 Gui, Suggestions:Default
+Gui, color, Black, Black
 Gui, Font, s10, Courier New
 Gui, Font, s10, Consolas
 Gui, +Delimiter`n
-Gui, Add, ListBox, x0 y0 h%BoxHeight% 0x100 vMatched gCompleteWord AltSubmit
+Gui, Add, ListBox, cWhite x0 y0 h%BoxHeight% 0x100 vMatched gCompleteWord AltSubmit
 Gui, -Caption +ToolWindow +AlwaysOnTop +LastFound
 hWindow := WinExist()
 Gui, Show, h%BoxHeight% Hide, AutoComplete
