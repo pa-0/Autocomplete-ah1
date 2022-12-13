@@ -50,6 +50,12 @@ Modifications by thdoan
 - Fixed horizontal scrollbar in Preferences wordlist
 - Fixed Regular Expressions reserved characters not escaped in wordlist
 
+Fixes by Gwydion
+-----------------
+ - fix clipboard
+ - fix wordlist (idk maybe it didn't just work for me)
+ - changed theme to dark
+
 Licence
 -------
 
