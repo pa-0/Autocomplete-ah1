@@ -196,7 +196,7 @@ GuiControl, +Redraw, Words
 WordList := SubStr(TempList,2,-1)
 Return
 
-#IfWinExist AutoComplete ahk_class AutoHotkeyGUI
+#IfWinExist AutoComplete ahk_class AutoHotkeyGUI 
 
 ~LButton::
 MouseGetPos,,, Temp1
@@ -240,20 +240,45 @@ Else If % Temp1 < MaxResults
 Return
 
 1::
+Send, 1
+Gosub, ResetWord
+return
 2::
+Send, 2
+Gosub, ResetWord
+return
 3::
+Send, 3
+Gosub, ResetWord
+return
 4::
+Send, 4
+Gosub, ResetWord
+return
 5::
+Send, 5
+Gosub, ResetWord
+return
 6::
+Send, 6
+Gosub, ResetWord
+return
 7::
+Send, 7
+Gosub, ResetWord
+return
 8::
+Send, 8
+Gosub, ResetWord
+return
 9::
+Send, 9
+Gosub, ResetWord
+return
 0::
-Gui, Suggestions:Default
-Key := SubStr(A_ThisHotkey,1,1)
-GuiControl, Choose, Matched, % Key = 0 ? 10 : Key
-Gosub, CompleteWord
-Return
+Send, 0
+Gosub, ResetWord
+return
 
 Esc::
 Gosub, ResetWord
@@ -299,6 +324,11 @@ If StrLen(CurrentWord) < ShowLength
 }
 
 MatchList := Suggest(CurrentWord,WordList)
+
+If (Not WinActive("ahk_exe WINWORD.EXE") )
+{
+    MatchList := ""
+}
 
 ;check for a lack of matches
 If (MatchList = "")
@@ -509,7 +539,7 @@ SendWord(CurrentWord,NewWord,CorrectCase = False)
     }
 
     ClipSaved := Clipboard ;back up clipboard
-    Clipboard = ;empty the clipboard
+    Clipboard := "" ;empty the clipboard
     Clipboard := NewWord ;put selected word into clipboard
     ClipWait ;wait for the clipboard to contain text
 
