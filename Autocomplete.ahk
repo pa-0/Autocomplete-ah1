@@ -547,7 +547,7 @@ SendWord(CurrentWord,NewWord,CorrectCase = False)
     Send, % "{BS " . StrLen(CurrentWord) . "}^v" . MoveLeft
     ;pasting instead of SendRaw to play nicely with auto-indent editors
     ;SendRaw, %NewWord%
-    Sleep, 50 ;wait for paste action to complete
+    Sleep, 100 ;wait for paste action to complete
     Clipboard := ClipSaved ;restore previous clipboard
     ;clear to free up memory
     ClipSaved =
