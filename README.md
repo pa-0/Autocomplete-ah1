@@ -1,5 +1,6 @@
-Autocomplete by Uberi
+Autocomplete 
 =====================
+This is an Autohotkey Application originally made my Uberi. but the Project seems to have been abandoned, This fork Updates the AutohotKey version with change to dark theme and fixing some bugs.
 Suggests and completes words as you type! Write faster and more efficiently.
 
 ![Screenshot](Screenshot.png)
@@ -42,6 +43,11 @@ Fixes by Gwydion
  - fix clipboard
  - fix wordlist (idk maybe it didn't just work for me)
  - changed theme to dark
+
+Credits 
+-------
+ - ubery
+ - Thdoan
 
 Licence
 -------
