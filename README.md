@@ -17,6 +17,14 @@ Using
 7. Alternatively, press one of `1`, `2`, ... `9`, `0` to trigger completion with the 1st, 2nd, ... 9th, and 10th word, repectively.
 8. Press `Esc` to cancel and close the suggestions list.
 
+
+Fixes by Gwydion
+-----------------
+ - fix clipboard
+ - fix wordlist (idk maybe it didn't just work for me)
+ - changed theme to dark
+
+
 Modifications by thdoan
 -----------------------
 
@@ -38,11 +46,6 @@ Modifications by thdoan
 - Fixed horizontal scrollbar in Preferences wordlist
 - Fixed Regular Expressions reserved characters not escaped in wordlist
 
-Fixes by Gwydion
------------------
- - fix clipboard
- - fix wordlist (idk maybe it didn't just work for me)
- - changed theme to dark
 
 Credits 
 -------
