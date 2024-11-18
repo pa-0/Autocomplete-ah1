@@ -1,5 +1,6 @@
-Autocomplete by Uberi
+Autocomplete 
 =====================
+This is an Autohotkey Application originally made my Uberi. but the Project seems to have been abandoned, This fork Updates the AutohotKey version with change to dark theme and fixing some bugs.
 Suggests and completes words as you type! Write faster and more efficiently.
 
 ![Screenshot](Screenshot.png)
@@ -7,27 +8,22 @@ Suggests and completes words as you type! Write faster and more efficiently.
 Using
 -----
 
-1. Extract the archive to a safe location.
-2. If you downloaded the binaries, open `Autocomplete.exe`.
-3. If you downloaded the source, make sure you have a recent version of [AutoHotkey](http://www.autohotkey.com/) installed, and run `Autocomplete.ahk`.
+1. Clone the repo and extract to a safe location
+2. make sure you have a recent version of [AutoHotkey](http://www.autohotkey.com/) installed, and run `Autocomplete.ahk`.
+3. Use the tray menu to alter the settings
 4. Start typing somewhere. After the first few characters, a suggestion box will appear.
 5. Use the `Up`/`Down` and `PgUp`/`PgDn` keys to select an entry if the currently selected one is not the desired word.
-6. Press `Enter` or `Tab` to trigger the completion with the currently selected word.
+6. Press `Tab` to trigger the completion with the currently selected word.
 7. Alternatively, press one of `1`, `2`, ... `9`, `0` to trigger completion with the 1st, 2nd, ... 9th, and 10th word, repectively.
 8. Press `Esc` to cancel and close the suggestions list.
 
-Advanced
---------
 
-Click on the tray icon to bring up the settings dialog. The dialog allows you to configure settings such as the maximum number of results to show at a time and the number of characters to type before showing suggestions.
+Fixes by Gwydion
+-----------------
+ - fix clipboard
+ - fix wordlist (idk maybe it didn't just work for me)
+ - changed theme to dark
 
-The dialog also allows you to edit the wordlist by adding or removing words. All settings are saved automatically upon program exit.
-
-The wordlist is contained in `WordList.txt`. Each line represents a word. The list can be edited with a text editor, but ensure the editor supports larger files before doing so! Some may crash or hang upon editing such files.
-
-Settings are stored in `Settings.ini` in the program directory. This contains a few more settings not accessible in the settings dialog, mainly the key settings.
-
-Key settings are URL encoded lists of key names such as `Space` and `d` where each entry is separated by a newline (the URL encoded version of a newline is `%0A`). They can be edited to change the keys accepted by the program.
 
 Modifications by thdoan
 -----------------------
@@ -49,6 +45,12 @@ Modifications by thdoan
 - Fixed incompatibility bug with v1.1.20.00 and higher
 - Fixed horizontal scrollbar in Preferences wordlist
 - Fixed Regular Expressions reserved characters not escaped in wordlist
+
+
+Credits 
+-------
+ - ubery
+ - Thdoan
 
 Licence
 -------

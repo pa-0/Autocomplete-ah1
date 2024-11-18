@@ -25,7 +25,7 @@ NormalKeyList := "a`nb`nc`nd`ne`nf`ng`nh`ni`nj`nk`nl`nm`nn`no`np`nq`nr`ns`nt`nu`
 NumberKeyList := "1`n2`n3`n4`n5`n6`n7`n8`n9`n0" ;list of key names separated by `n that make up words as well as their numpad equivalents
 OtherKeyList := "<`n(`n{`n'`n-" ;list of key names separated by `n that make up words
 ResetKeyList := "Esc`nSpace`nHome`nNumpadHome`nEnd`nNumpadEnd`nLeft`nNumpadLeft`nRight`nNumpadRight`nRButton`nMButton`n,`n.`n/`n[`n]`n;`n\`n=`n```n""" ;list of key names separated by `n that cause suggestions to reset
-TriggerKeyList := "Tab`nEnter`nNumpadEnter" ;list of key names separated by `n that trigger completion
+TriggerKeyList := "Tab" ;list of key names separated by `n that trigger completion
 
 IniRead, MaxResults, %SettingsFile%, Settings, MaxResults, %MaxResults%
 IniRead, ShowLength, %SettingsFile%, Settings, ShowLength, %ShowLength%
@@ -67,10 +67,11 @@ Menu, Tray, Default, Settings
 
 ;set up suggestions window
 Gui, Suggestions:Default
+Gui, color, Black, Black
 Gui, Font, s10, Courier New
 Gui, Font, s10, Consolas
 Gui, +Delimiter`n
-Gui, Add, ListBox, x0 y0 h%BoxHeight% 0x100 vMatched gCompleteWord AltSubmit
+Gui, Add, ListBox, cWhite x0 y0 h%BoxHeight% 0x100 vMatched gCompleteWord AltSubmit
 Gui, -Caption +ToolWindow +AlwaysOnTop +LastFound
 hWindow := WinExist()
 Gui, Show, h%BoxHeight% Hide, AutoComplete
@@ -195,7 +196,7 @@ GuiControl, +Redraw, Words
 WordList := SubStr(TempList,2,-1)
 Return
 
-#IfWinExist AutoComplete ahk_class AutoHotkeyGUI
+#IfWinExist AutoComplete ahk_class AutoHotkeyGUI 
 
 ~LButton::
 MouseGetPos,,, Temp1
@@ -239,20 +240,45 @@ Else If % Temp1 < MaxResults
 Return
 
 1::
+Send, 1
+Gosub, ResetWord
+return
 2::
+Send, 2
+Gosub, ResetWord
+return
 3::
+Send, 3
+Gosub, ResetWord
+return
 4::
+Send, 4
+Gosub, ResetWord
+return
 5::
+Send, 5
+Gosub, ResetWord
+return
 6::
+Send, 6
+Gosub, ResetWord
+return
 7::
+Send, 7
+Gosub, ResetWord
+return
 8::
+Send, 8
+Gosub, ResetWord
+return
 9::
+Send, 9
+Gosub, ResetWord
+return
 0::
-Gui, Suggestions:Default
-Key := SubStr(A_ThisHotkey,1,1)
-GuiControl, Choose, Matched, % Key = 0 ? 10 : Key
-Gosub, CompleteWord
-Return
+Send, 0
+Gosub, ResetWord
+return
 
 Esc::
 Gosub, ResetWord
@@ -298,6 +324,11 @@ If StrLen(CurrentWord) < ShowLength
 }
 
 MatchList := Suggest(CurrentWord,WordList)
+
+If (Not WinActive("ahk_exe WINWORD.EXE") )
+{
+    MatchList := ""
+}
 
 ;check for a lack of matches
 If (MatchList = "")
@@ -508,7 +539,7 @@ SendWord(CurrentWord,NewWord,CorrectCase = False)
     }
 
     ClipSaved := Clipboard ;back up clipboard
-    Clipboard = ;empty the clipboard
+    Clipboard := "" ;empty the clipboard
     Clipboard := NewWord ;put selected word into clipboard
     ClipWait ;wait for the clipboard to contain text
 
@@ -516,7 +547,7 @@ SendWord(CurrentWord,NewWord,CorrectCase = False)
     Send, % "{BS " . StrLen(CurrentWord) . "}^v" . MoveLeft
     ;pasting instead of SendRaw to play nicely with auto-indent editors
     ;SendRaw, %NewWord%
-    Sleep, 50 ;wait for paste action to complete
+    Sleep, 100 ;wait for paste action to complete
     Clipboard := ClipSaved ;restore previous clipboard
     ;clear to free up memory
     ClipSaved =
